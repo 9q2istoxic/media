@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Panel de staff - PrismaMC</title>
+  <meta name="robots" content="noindex" />
+  <link rel="icon" id="faviconLink" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%23f2a43a'/%3E%3Cpath d='M9 22V10l7 5 7-5v12' fill='none' stroke='%2314101f' stroke-width='2.4' stroke-linejoin='round'/%3E%3C/svg%3E" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,600;12..96,700;12..96,800&family=Inter:wght@400;450;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/styles.css" />
+</head>
+<body>
+  <div class="torch" aria-hidden="true"></div>
+
+  <header class="nav">
+    <a class="brand" href="/">
+      <span class="brand-mark" id="brandMark" aria-hidden="true">
+        <svg viewBox="0 0 32 32" width="26" height="26"><rect width="32" height="32" rx="7" fill="var(--torch)"/><path d="M9 22V10l7 5 7-5v12" fill="none" stroke="#14101f" stroke-width="2.4" stroke-linejoin="round"/></svg>
+      </span>
+      <span class="brand-text">PrismaMC <em>Staff</em></span>
+    </a>
+    <nav class="nav-links">
+      <a id="backToAccount" href="/">Mi cuenta</a>
+    </nav>
+    <div class="nav-auth" id="navAuth"></div>
+  </header>
+
+  <main id="top">
+    <section class="admin-section">
+      <div class="admin-wrap">
+        <div class="stat-grid" id="adminStats"></div>
+
+        <div class="admin-tabs">
+          <button type="button" class="admin-tab active" id="tabPending">Pendientes <span id="pendingCount" class="admin-tab-count"></span></button>
+          <button type="button" class="admin-tab" id="tabAudit">Auditoría (todas)</button>
+          <button type="button" class="admin-tab" id="tabContent" hidden>Contenido de la web</button>
+        </div>
+
+        <p class="admin-msg" id="adminMsg"></p>
+
+        <div id="appList" class="admin-list"></div>
+
+        <div id="contentEditor" class="content-editor" hidden></div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <span>PrismaMC · Panel de staff</span>
+      <span class="credit" id="credit">Hecho por 9q2IsToXiC</span>
+    </div>
+  </footer>
+
+  <script src="/admin.js"></script>
+</body>
+</html>

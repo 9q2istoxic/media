@@ -1,0 +1,30 @@
+{
+  "notificationChannelId": "1532151248583659540",
+  "logChannelId": "1532175530948956160",
+  "auditLogChannelId": "1544753188111126638",
+  "blacklistLogChannelId": "1551533957437333546",
+  "adminRoleId": "1532144011849240696",
+  "mediaManagerRoleId": "1532143980744151131",
+  "staffAssistantRoleId": "1532144874974085140",
+  "applicationChannels": {
+    "pending": "1532413991899627791",
+    "accepted": "1544747151656226946",
+    "rejected": "1544747100070346833"
+  },
+  "tickets": {
+    "panelChannelId": "1544752349673947156",
+    "categoryId": "1544752289955450890",
+    "classificationChannelId": "1544896761007444068",
+    "closeLogChannelId": "1532145226246783076"
+  },
+  "roles": {
+    "MEDIA": "1532154620162478141",
+    "TIKTOK": "1544758889361178624",
+    "TWITCH": "1532153520352919572",
+    "KICK": "1544758405028257902",
+    "YOUTUBE": "1544758753935761478",
+    "FAMOUS": "1532153402203701409"
+  },
+  "videoNotificationChannelId": "1532147122571575406",
+  "liveNotificationChannelId": "1532183299441557620"
+}

@@ -1,0 +1,202 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Tu cuenta - PrismaMC</title>
+  <meta name="robots" content="noindex" />
+  <link rel="icon" id="faviconLink" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%23f2a43a'/%3E%3Cpath d='M9 22V10l7 5 7-5v12' fill='none' stroke='%2314101f' stroke-width='2.4' stroke-linejoin='round'/%3E%3C/svg%3E" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,600;12..96,700;12..96,800&family=Inter:wght@400;450;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/styles.css" />
+</head>
+<body>
+  <div class="torch" aria-hidden="true"></div>
+
+  <header class="nav">
+    <a class="brand" href="/">
+      <span class="brand-mark" id="brandMark" aria-hidden="true">
+        <svg viewBox="0 0 32 32" width="26" height="26"><rect width="32" height="32" rx="7" fill="var(--torch)"/><path d="M9 22V10l7 5 7-5v12" fill="none" stroke="#14101f" stroke-width="2.4" stroke-linejoin="round"/></svg>
+      </span>
+      <span class="brand-text">PrismaMC <em>Creadores</em></span>
+    </a>
+    <nav class="nav-links">
+      <a href="/">Inicio</a>
+    </nav>
+    <div class="nav-auth" id="navAuth"></div>
+  </header>
+
+  <main id="top">
+    <section id="cuenta" class="account-section">
+      <div class="account-wrap">
+        <div class="account-card account-card-in" id="acctLoggedIn">
+          <div class="account-profile">
+            <img id="acctAvatar" class="account-avatar" alt="" width="52" height="52" />
+            <div class="account-profile-text">
+              <p class="account-name" id="acctName"></p>
+              <p class="account-sub">Cuenta de PrismaMC · <span id="acctSince"></span></p>
+            </div>
+          </div>
+
+          <div class="stat-grid" id="statGrid">
+
+          </div>
+
+          <h3 class="dashboard-subhead">Tus solicitudes</h3>
+          <div class="account-status" id="solicitudesList">
+
+          </div>
+
+          <div class="dashboard-actions" id="dashboardActions">
+
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <span>PrismaMC · Programa de creadores</span>
+      <span class="credit" id="credit">Hecho por 9q2IsToXiC</span>
+    </div>
+  </footer>
+
+  <div class="wizard-overlay" id="wizardOverlay" hidden>
+    <div class="wizard" role="dialog" aria-modal="true" aria-labelledby="wizardTitle">
+      <header class="wizard-head">
+        <div class="wizard-progress" id="wizardProgress">
+          <span class="wp-step" data-wp="1"><i>1</i>Categoría</span>
+          <span class="wp-step" data-wp="2"><i>2</i>Plataforma</span>
+          <span class="wp-step" data-wp="3"><i>3</i>Cuenta</span>
+          <span class="wp-step" data-wp="4"><i>4</i>Contenido</span>
+          <span class="wp-step" data-wp="5"><i>5</i>Estadísticas</span>
+          <span class="wp-step" data-wp="6"><i>6</i>Revisión</span>
+        </div>
+        <button type="button" class="wizard-close" id="wizardClose" aria-label="Cerrar">
+          <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 6l12 12M18 6 6 18"/></svg>
+        </button>
+      </header>
+
+      <form class="wizard-body" id="wizardForm">
+        <h2 id="wizardTitle" class="sr-only">Solicitud de creador</h2>
+
+        <section class="w-step" data-step="1">
+          <p class="w-step-eyebrow">Paso 1 de 6</p>
+          <h3>¿Qué tipo de creador eres?</h3>
+          <p class="w-step-help">Elige tu categoría. En el siguiente paso te preguntamos la plataforma.</p>
+          <div class="rank-grid" id="rankGrid">
+            <label class="rank-card"><input type="radio" name="range" value="Media" />
+              <span class="rank-card-name">Media</span><span class="rank-card-desc">Contenido general de la comunidad</span></label>
+            <label class="rank-card"><input type="radio" name="range" value="Twitch" />
+              <span class="rank-card-name">Twitch</span><span class="rank-card-desc">Streaming en directo (Twitch o Kick)</span></label>
+            <label class="rank-card"><input type="radio" name="range" value="Famous" />
+              <span class="rank-card-name">Famous</span><span class="rank-card-desc">Alcance muy grande en cualquier red</span></label>
+          </div>
+          <p class="w-error" data-err="1"></p>
+        </section>
+
+        <section class="w-step" data-step="2">
+          <p class="w-step-eyebrow">Paso 2 de 6</p>
+          <h3>¿En qué plataforma vas a grabar o streamear?</h3>
+          <p class="w-step-help">Elige la red donde vamos a verificar tu contenido.</p>
+          <div class="rank-grid" id="platformGrid">
+            <label class="rank-card" data-platform="YouTube"><input type="radio" name="platform" value="YouTube" />
+              <span class="rank-card-name">YouTube</span><span class="rank-card-desc">Vídeos y directos</span></label>
+            <label class="rank-card" data-platform="TikTok"><input type="radio" name="platform" value="TikTok" />
+              <span class="rank-card-name">TikTok</span><span class="rank-card-desc">Vídeos y directos</span></label>
+            <label class="rank-card" data-platform="Twitch"><input type="radio" name="platform" value="Twitch" />
+              <span class="rank-card-name">Twitch</span><span class="rank-card-desc">Streaming en directo</span></label>
+            <label class="rank-card" data-platform="Kick"><input type="radio" name="platform" value="Kick" />
+              <span class="rank-card-name">Kick</span><span class="rank-card-desc">Streaming en directo</span></label>
+          </div>
+          <p class="w-error" data-err="platform"></p>
+        </section>
+
+        <section class="w-step" data-step="3">
+          <p class="w-step-eyebrow">Paso 3 de 6</p>
+          <h3>Tu cuenta</h3>
+          <p class="w-step-help">Esto ya lo sabemos gracias a tu inicio de sesión con Discord.</p>
+          <div class="w-readonly">
+            <img id="wAvatar" alt="" width="40" height="40" />
+            <div><p class="w-readonly-name" id="wDiscordName"></p><p class="w-readonly-sub">Discord conectado</p></div>
+          </div>
+          <div class="field">
+            <label for="wIgn">Nombre en juego (IGN)</label>
+            <input id="wIgn" name="ign" type="text" autocomplete="off" maxlength="64" placeholder="TuNick" />
+            <p class="w-hint" id="wIgnHint"></p>
+            <p class="w-error" data-err="ign"></p>
+          </div>
+        </section>
+
+        <section class="w-step" data-step="4">
+          <p class="w-step-eyebrow">Paso 4 de 6</p>
+          <h3 id="wContentTitle">Tu contenido</h3>
+          <p class="w-step-help" id="wContentHelp">Añade el enlace de tu canal o perfil.</p>
+          <div class="field">
+            <label for="wChannel" id="wChannelLabel">Enlace del canal</label>
+            <input id="wChannel" name="channel_url" type="url" autocomplete="off" maxlength="300" placeholder="https://youtube.com/@tucanal" />
+            <p class="w-hint" id="wChannelHint"></p>
+            <p class="w-error" data-err="channel"></p>
+          </div>
+          <div class="field">
+            <label for="wComment">Comentario <span class="opt">(opcional)</span></label>
+            <textarea id="wComment" name="comment" rows="4" maxlength="1200" placeholder="Cuéntanos lo que quieras añadir."></textarea>
+          </div>
+        </section>
+
+        <section class="w-step" data-step="5">
+          <p class="w-step-eyebrow">Paso 5 de 6</p>
+          <h3>Sube una captura de tus estadísticas</h3>
+          <p class="w-step-help">PNG, JPG o WEBP · Máximo 8 MB. Tiene que ser un archivo desde tu dispositivo, no un enlace.</p>
+          <div class="drop" id="drop" tabindex="0" role="button" aria-label="Subir imagen de estadísticas">
+            <input id="stats" name="stats" type="file" accept="image/png,image/jpeg,image/webp" hidden />
+            <div class="drop-empty" id="dropEmpty">
+              <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 16V4m0 0 4 4m-4-4-4 4"/><path d="M4 16v2a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-2"/></svg>
+              <p><strong>Arrastra tu captura aquí</strong> o pulsa para elegir el archivo</p>
+            </div>
+            <div class="drop-preview" id="dropPreview" hidden>
+              <img id="previewImg" alt="Vista previa de la captura" />
+              <div class="preview-meta">
+                <p id="previewName"></p>
+                <p id="previewSize" class="preview-size"></p>
+              </div>
+              <div class="preview-actions">
+                <button type="button" class="preview-remove" id="changeImg">Cambiar</button>
+                <button type="button" class="preview-remove" id="removeImg">Eliminar</button>
+              </div>
+            </div>
+          </div>
+          <p class="w-error" data-err="stats"></p>
+        </section>
+
+        <section class="w-step" data-step="6">
+          <p class="w-step-eyebrow">Paso 6 de 6</p>
+          <h3>Revisa tu solicitud</h3>
+          <p class="w-step-help">¿Todo correcto? Puedes volver atrás para cambiar cualquier dato.</p>
+          <dl class="review-list" id="reviewList"></dl>
+          <p class="w-error" data-err="submit"></p>
+        </section>
+
+        <section class="w-step w-success" data-step="done">
+          <div class="w-success-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" width="30" height="30" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 13l4 4L19 7"/></svg>
+          </div>
+          <h3>Solicitud enviada</h3>
+          <p id="doneText">Nuestro equipo revisará tu solicitud. Recibirás la respuesta a través de Discord.</p>
+          <button type="button" class="btn btn-primary" id="doneClose">Volver a mi cuenta</button>
+        </section>
+      </form>
+
+      <footer class="wizard-foot" id="wizardFoot">
+        <button type="button" class="btn btn-ghost" id="wBack">Atrás</button>
+        <button type="button" class="btn btn-primary" id="wNext">Continuar</button>
+        <button type="button" class="btn btn-primary" id="wSubmit" hidden>Enviar solicitud</button>
+      </footer>
+    </div>
+  </div>
+
+  <script src="/account.js"></script>
+</body>
+</html>

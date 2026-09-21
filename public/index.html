@@ -1,0 +1,159 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Programa de Creadores - PrismaMC</title>
+  <meta name="description" content="Aplica al programa de creadores de PrismaMC. Inicia sesión con Discord, sube tus estadísticas y consigue tu rango de creador." />
+  <link rel="icon" id="faviconLink" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%23f2a43a'/%3E%3Cpath d='M9 22V10l7 5 7-5v12' fill='none' stroke='%2314101f' stroke-width='2.4' stroke-linejoin='round'/%3E%3C/svg%3E" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,600;12..96,700;12..96,800&family=Inter:wght@400;450;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/styles.css" />
+  <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
+</head>
+<body>
+  <div class="torch" aria-hidden="true"></div>
+
+  <div id="turnstileOverlay" class="turnstile-overlay hidden">
+    <div class="turnstile-card">
+      <p>Verifica que eres humano para continuar.</p>
+      <div id="turnstileWidget"></div>
+    </div>
+  </div>
+
+  <header class="nav">
+    <a class="brand" href="#top">
+      <span class="brand-mark" id="brandMark" aria-hidden="true">
+        <svg viewBox="0 0 32 32" width="26" height="26"><rect width="32" height="32" rx="7" fill="var(--torch)"/><path d="M9 22V10l7 5 7-5v12" fill="none" stroke="#14101f" stroke-width="2.4" stroke-linejoin="round"/></svg>
+      </span>
+      <span class="brand-text">PrismaMC <em>Creadores</em></span>
+    </a>
+    <nav class="nav-links">
+      <a href="#requisitos">Requisitos</a>
+      <a href="#pasos">Cómo funciona</a>
+      <a href="#faq">Dudas</a>
+    </nav>
+    <div class="nav-auth" id="navAuth"></div>
+  </header>
+
+  <main id="top">
+
+    <section class="hero">
+      <p class="eyebrow" id="heroEyebrow">Programa de creadores · BoxPvP</p>
+      <h1 id="heroTitle">Tu contenido merece un rango en PrismaMC.</h1>
+      <p class="lead" id="heroLead">
+        Grabas, editas y subes partidas del server. Nosotros te damos el rango de creador,
+        color en el chat y sitio en los eventos. La solicitud lleva un par de minutos.
+      </p>
+      <div class="hero-cta">
+        <a href="/auth/discord" class="btn btn-primary" id="heroStart">Empezar solicitud</a>
+        <a href="#requisitos" class="btn btn-ghost">Ver requisitos</a>
+      </div>
+      <ul class="hero-facts">
+        <li>Solicitud guiada, paso a paso</li>
+        <li>Revisión manual por el equipo</li>
+        <li>Necesitas una cuenta de Discord</li>
+      </ul>
+    </section>
+
+    <section class="benefits" aria-label="Qué consigues">
+      <div class="benefit benefit-lead">
+        <h2>Qué consigues al entrar</h2>
+        <p>Ventajas reales dentro y fuera del juego, no un rol decorativo.</p>
+      </div>
+      <ul class="benefit-list">
+        <li>
+          <h3>Rango y color en el chat</h3>
+          <p>Tu nombre destaca en el juego y en el Discord con el rol de tu categoría.</p>
+        </li>
+        <li>
+          <h3>Tu contenido, difundido</h3>
+          <p>Tus vídeos y directos se publican automáticamente en el canal del server.</p>
+        </li>
+        <li>
+          <h3>Prioridad en eventos</h3>
+          <p>Plaza reservada en torneos y acceso anticipado a novedades del BoxPvP.</p>
+        </li>
+      </ul>
+    </section>
+
+    <section id="requisitos" class="requisitos">
+      <div class="section-head">
+        <h2>Requisitos por rango</h2>
+        <p>Aplica al rango que encaje con tu red principal. Si dudas, elige Media.</p>
+      </div>
+      <div class="table-wrap">
+        <table class="req-table">
+          <thead>
+            <tr><th>Rango</th><th>Mínimo</th><th>Además</th></tr>
+          </thead>
+          <tbody id="reqTableBody">
+            <tr><th scope="row">Media</th><td>150 suscriptores</td><td>+300 visitas</td></tr>
+            <tr><th scope="row">Twitch</th><td>200 seguidores</td><td>+8 espectadores de media</td></tr>
+            <tr><th scope="row">Famous</th><td>1.250 suscriptores</td><td>1.500 visitas (o 800 seguidores / +20 espectadores si es en directo)</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="req-foot">Los números son orientativos: el staff valora también la calidad y la constancia.</p>
+    </section>
+
+    <section id="pasos" class="pasos">
+      <div class="section-head">
+        <h2>Cómo funciona</h2>
+        <p>Tres pasos. El primero confirma que eres tú de verdad.</p>
+      </div>
+      <ol class="steps">
+        <li>
+          <span class="step-n">1</span>
+          <h3>Inicia sesión con Discord</h3>
+          <p>Creamos tu cuenta automáticamente. Nunca escribes tu Discord ID a mano.</p>
+        </li>
+        <li>
+          <span class="step-n">2</span>
+          <h3>Completa tu solicitud</h3>
+          <p>Un formulario guiado paso a paso: categoría, cuenta, contenido y estadísticas.</p>
+        </li>
+        <li>
+          <span class="step-n">3</span>
+          <h3>El staff revisa y te avisa</h3>
+          <p>Recibes la respuesta por mensaje directo. Si te aceptan, el rol se asigna solo.</p>
+        </li>
+      </ol>
+    </section>
+
+    <section id="faq" class="faq">
+      <div class="section-head">
+        <h2>Dudas frecuentes</h2>
+      </div>
+      <div class="faq-list" id="faqList">
+        <details>
+          <summary>¿Cuánto tarda la revisión?</summary>
+          <p>Suele ser cuestión de horas o de un par de días, según el volumen. Te avisamos por DM en cuanto haya respuesta.</p>
+        </details>
+        <details>
+          <summary>¿Puedo volver a aplicar si me rechazan?</summary>
+          <p>Sí. Revisa que cumples los requisitos y vuelve a enviarla. No hay una segunda solicitud mientras tengas una pendiente.</p>
+        </details>
+        <details>
+          <summary>¿Por qué una captura y no un enlace?</summary>
+          <p>Los enlaces se pueden falsear y no queremos que subas nada raro. Una imagen desde tu dispositivo es más segura y clara.</p>
+        </details>
+        <details>
+          <summary>¿Qué hacéis con mi cuenta de Discord?</summary>
+          <p>Solo leemos tu nombre y tu avatar para identificarte y crear tu cuenta aquí. No publicamos nada ni tocamos tus servidores.</p>
+        </details>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <span>PrismaMC · Programa de creadores</span>
+      <span class="credit" id="credit">Hecho por 9q2IsToXiC</span>
+    </div>
+  </footer>
+
+  <script src="/app.js"></script>
+</body>
+</html>
